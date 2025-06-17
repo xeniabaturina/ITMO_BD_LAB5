@@ -1,0 +1,21 @@
+K-means Clustering Report
+========================
+
+Number of clusters (k): 5
+Silhouette score: 0.49
+
+Cluster Statistics:
+   prediction avg_energy_100g avg_proteins_100g avg_carbohydrates_100g avg_sugars_100g avg_fat_100g avg_saturated-fat_100g avg_fiber_100g avg_salt_100g avg_sodium_100g
+0           4         1123.86              9.02                  32.00            5.69        11.79                   2.90           1.35          1.86            0.75
+1           1         1933.91             16.93                  22.14            5.13        35.05                  10.78           2.84          1.10            0.44
+2           0          353.16              3.51                  11.80            5.62         2.59                   0.89           0.88          0.22            0.09
+3           3         1700.67              4.37                  63.92           42.21        15.53                   7.33           1.44          0.44            0.18
+4           2         1578.84             10.52                  67.44           11.58         7.95                   1.32           5.83          0.48            0.19
+
+Cluster Sizes:
+   prediction  count
+0           0  59196
+1           1  13103
+2           2  15538
+3           3  23104
+4           4  23542
