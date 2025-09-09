@@ -4,7 +4,7 @@ import findspark
 findspark.init()
 
 from config import (
-    PROCESSED_DATA_PATH, KMEANS_MODEL_PATH, REPORT_DIR,
+    PROCESSED_DATA_PATH, KMEANS_MODEL_PATH, REPORTS_DIR,
     KMEANS_CONFIG, get_logger, clear_logs
 )
 
@@ -49,7 +49,7 @@ def main():
     logger.info("Results summary:")
     logger.info(f"Silhouette score: {silhouette:.2f}")
     logger.info(f"Model saved to: {os.path.abspath(KMEANS_MODEL_PATH)}")
-    logger.info(f"Reports saved to: {os.path.abspath(REPORT_DIR)}")
+    logger.info(f"Reports saved to: {os.path.abspath(REPORTS_DIR)}")
 
 if __name__ == "__main__":
     start_time = time.time()

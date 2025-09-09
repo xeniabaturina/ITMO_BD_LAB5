@@ -4,27 +4,33 @@ from logging.handlers import RotatingFileHandler
 
 # Directory paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "../data")
-MODELS_DIR = os.path.join(BASE_DIR, "models")
-REPORT_DIR = os.path.join(BASE_DIR, "reports")
-PLOTS_DIR = os.path.join(REPORT_DIR, "plots")
-LOGS_DIR = os.path.join(BASE_DIR, "logs")
-SPARK_EVENT_LOG_DIR = os.path.join(BASE_DIR, "spark-events")
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
-for directory in [DATA_DIR, MODELS_DIR, REPORT_DIR, PLOTS_DIR, LOGS_DIR, SPARK_EVENT_LOG_DIR]:
+# Data subdirectories
+RAW_DATA_DIR = os.path.join(DATA_DIR, "raw")
+PROCESSED_DATA_DIR = os.path.join(DATA_DIR, "processed")
+MODELS_DIR = os.path.join(DATA_DIR, "models")
+REPORTS_DIR = os.path.join(DATA_DIR, "reports")
+PLOTS_DIR = os.path.join(REPORTS_DIR, "plots")
+LOGS_DIR = os.path.join(DATA_DIR, "logs")
+SPARK_EVENT_LOG_DIR = os.path.join(DATA_DIR, "spark-events")
+
+# Create all directories
+for directory in [DATA_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR, MODELS_DIR, 
+                  REPORTS_DIR, PLOTS_DIR, LOGS_DIR, SPARK_EVENT_LOG_DIR]:
     os.makedirs(directory, exist_ok=True)
 
 # Data file paths
-ORIGINAL_DATA_PATH = os.path.join(DATA_DIR, "openfoodfacts-mongodbdump.tar.gz")
-MONGO_EXPORT_PATH = os.path.join(DATA_DIR, "products.json")
-PROCESSED_DATA_PATH = os.path.join(DATA_DIR, "processed_food_data.parquet")
-CSV_DATA_PATH = os.path.join(DATA_DIR, "openfoodfacts-products.csv")
+ORIGINAL_DATA_PATH = os.path.join(RAW_DATA_DIR, "openfoodfacts-mongodbdump.tar.gz")
+MONGO_EXPORT_PATH = os.path.join(RAW_DATA_DIR, "products.json")
+PROCESSED_DATA_PATH = os.path.join(PROCESSED_DATA_DIR, "processed_food_data.parquet")
+CSV_DATA_PATH = os.path.join(RAW_DATA_DIR, "openfoodfacts-products.csv")
 
 # Model paths
 KMEANS_MODEL_PATH = os.path.join(MODELS_DIR, "kmeans_model")
 
 # Report paths
-REPORT_PATH = os.path.join(REPORT_DIR, "clustering_report.txt")
+REPORT_PATH = os.path.join(REPORTS_DIR, "clustering_report.txt")
 
 # Spark configuration
 SPARK_CONFIG = {

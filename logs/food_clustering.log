@@ -1,101 +1,104 @@
-2025-06-10 20:46:14 - __main__           - INFO     - ================================================================================
-2025-06-10 20:46:14 - __main__           - INFO     - ITMO Big Data Lab 5: PySpark K-Means Clustering on Food Data
-2025-06-10 20:46:14 - __main__           - INFO     - ================================================================================
-2025-06-10 20:46:14 - __main__           - INFO     - Testing Spark setup...
-2025-06-10 20:46:14 - spark_setup        - INFO     - Creating Spark session...
-2025-06-10 20:46:14 - spark_setup        - INFO     - Using Spark event log directory: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/spark-events
-2025-06-10 20:46:16 - spark_setup        - INFO     - Spark session created successfully with app name: FoodClusteringPipeline
-2025-06-10 20:46:16 - __main__           - INFO     - Running WordCount test...
-2025-06-10 20:46:16 - spark_setup        - INFO     - Running WordCount test...
-2025-06-10 20:46:17 - spark_setup        - INFO     - Word Count Results:
-2025-06-10 20:46:17 - spark_setup        - INFO     - a: 1
-2025-06-10 20:46:17 - spark_setup        - INFO     - Spark: 1
-2025-06-10 20:46:17 - spark_setup        - INFO     - Testing: 1
-2025-06-10 20:46:17 - spark_setup        - INFO     - simple: 1
-2025-06-10 20:46:17 - spark_setup        - INFO     - with: 1
-2025-06-10 20:46:17 - spark_setup        - INFO     - WordCount: 1
-2025-06-10 20:46:17 - spark_setup        - INFO     - example: 1
-2025-06-10 20:46:17 - __main__           - INFO     - Spark setup test completed successfully!
-2025-06-10 20:46:18 - __main__           - INFO     - Processed data already exists, skipping data processing...
-2025-06-10 20:46:18 - __main__           - INFO     - Building and evaluating K-means model...
-2025-06-10 20:46:18 - spark_setup        - INFO     - Creating Spark session...
-2025-06-10 20:46:18 - spark_setup        - INFO     - Using Spark event log directory: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/spark-events
-2025-06-10 20:46:19 - spark_setup        - INFO     - Spark session created successfully with app name: FoodClusteringApp
-2025-06-10 20:46:19 - kmeans_clustering  - INFO     - Loading processed data from /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/../data/processed_food_data.parquet...
-2025-06-10 20:46:19 - kmeans_clustering  - INFO     - Sample of processed data:
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - Sample of processed data:
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - +-----+----------------------------------------+--------------+-------------------+----------------+----------+-----------+-------------+------------------+-----------+--------+------------------+----------+---------+-----------+
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - |_id  |product_name                            |brands        |categories         |nutriscore_grade|nova_group|energy_100g|proteins_100g|carbohydrates_100g|sugars_100g|fat_100g|saturated-fat_100g|fiber_100g|salt_100g|sodium_100g|
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - +-----+----------------------------------------+--------------+-------------------+----------------+----------+-----------+-------------+------------------+-----------+--------+------------------+----------+---------+-----------+
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - |63.0 |Mozzarella Schnittfest Gerieben 45% Fett|Gut & Gunstig |NULL               |unknown         |NULL      |1,389.00   |23.00        |3.00              |1.00       |25.00   |17.30             |0.00      |1.20     |0.48       |
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - |114.0|Chocolate n 3                           |Jeff de Bruges|NULL               |unknown         |NULL      |2,415.00   |7.10         |30.00             |27.00      |44.00   |28.00             |0.00      |0.03     |0.01       |
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - |2.0  |Filets de poulet blanc x2               |SoLo          |Protein powders    |not-applicable  |1         |392.00     |30.00        |0.90              |6.20       |2.70    |0.60              |2.20      |0.40     |0.16       |
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - |4.0  |Entrecôesteack - Highland Beef          |Oreos         |Nutrition drink mix|d               |NULL      |2,401.00   |1.00         |26.00             |15.00      |0.00    |0.00              |3.00      |0.00     |0.00       |
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - |475.0|Confiture extra citron de Menton        |NULL          |NULL               |unknown         |NULL      |929.00     |0.80         |50.80             |50.60      |0.00    |0.00              |0.00      |0.00     |0.00       |
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - +-----+----------------------------------------+--------------+-------------------+----------------+----------+-----------+-------------+------------------+-----------+--------+------------------+----------+---------+-----------+
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - only showing top 5 rows
-2025-06-10 20:46:20 - kmeans_clustering  - INFO     - Preparing features for clustering...
-2025-06-10 20:46:22 - kmeans_clustering  - INFO     - Features prepared. Filtered dataset has 134483 records.
-2025-06-10 20:46:22 - kmeans_clustering  - INFO     - Finding optimal number of clusters...
-2025-06-10 20:46:25 - kmeans_clustering  - INFO     - k=2, WSSSE=869334.69, Silhouette Score=0.4415
-2025-06-10 20:46:27 - kmeans_clustering  - INFO     - k=3, WSSSE=698757.63, Silhouette Score=0.4586
-2025-06-10 20:46:28 - kmeans_clustering  - INFO     - k=4, WSSSE=611989.37, Silhouette Score=0.4852
-2025-06-10 20:46:30 - kmeans_clustering  - INFO     - k=5, WSSSE=544765.15, Silhouette Score=0.4859
-2025-06-10 20:46:32 - kmeans_clustering  - INFO     - k=6, WSSSE=506938.69, Silhouette Score=0.4571
-2025-06-10 20:46:34 - kmeans_clustering  - INFO     - k=7, WSSSE=456712.07, Silhouette Score=0.4309
-2025-06-10 20:46:36 - kmeans_clustering  - INFO     - k=8, WSSSE=428902.88, Silhouette Score=0.4534
-2025-06-10 20:46:38 - kmeans_clustering  - INFO     - k=9, WSSSE=393898.68, Silhouette Score=0.4490
-2025-06-10 20:46:41 - kmeans_clustering  - INFO     - k=10, WSSSE=377116.71, Silhouette Score=0.4557
-2025-06-10 20:46:43 - kmeans_clustering  - INFO     - k=11, WSSSE=353356.03, Silhouette Score=0.4536
-2025-06-10 20:46:46 - kmeans_clustering  - INFO     - k=12, WSSSE=340899.11, Silhouette Score=0.4464
-2025-06-10 20:46:48 - kmeans_clustering  - INFO     - k=13, WSSSE=328032.55, Silhouette Score=0.4442
-2025-06-10 20:46:51 - kmeans_clustering  - INFO     - k=14, WSSSE=307389.66, Silhouette Score=0.4723
-2025-06-10 20:46:54 - kmeans_clustering  - INFO     - k=15, WSSSE=298259.65, Silhouette Score=0.3988
-2025-06-10 20:46:54 - kmeans_clustering  - INFO     - Clustering metrics plot saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/clustering_metrics.png
-2025-06-10 20:46:54 - kmeans_clustering  - INFO     - Optimal k based on silhouette score: 5
-2025-06-10 20:46:54 - kmeans_clustering  - INFO     - Optimal k based on elbow method: 2
-2025-06-10 20:46:54 - kmeans_clustering  - INFO     - Using optimal k = 5
-2025-06-10 20:46:54 - kmeans_clustering  - INFO     - Building K-means model with k=5...
-2025-06-10 20:46:56 - kmeans_clustering  - INFO     - Model directory /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model already exists. Overwrite...
-2025-06-10 20:46:56 - kmeans_clustering  - INFO     - Model saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model
-2025-06-10 20:46:56 - kmeans_clustering  - INFO     - Evaluating model...
-2025-06-10 20:46:56 - kmeans_clustering  - INFO     - Silhouette score: 0.49
-2025-06-10 20:46:56 - kmeans_clustering  - INFO     - Analyzing clusters...
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - Cluster statistics:
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - +----------+---------------+-----------------+----------------------+---------------+------------+----------------------+--------------+-------------+---------------+
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |prediction|avg_energy_100g|avg_proteins_100g|avg_carbohydrates_100g|avg_sugars_100g|avg_fat_100g|avg_saturated-fat_100g|avg_fiber_100g|avg_salt_100g|avg_sodium_100g|
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - +----------+---------------+-----------------+----------------------+---------------+------------+----------------------+--------------+-------------+---------------+
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |4         |1,123.86       |9.02             |32.00                 |5.69           |11.79       |2.90                  |1.35          |1.86         |0.75           |
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |1         |1,933.91       |16.93            |22.14                 |5.13           |35.05       |10.78                 |2.84          |1.10         |0.44           |
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |0         |353.16         |3.51             |11.80                 |5.62           |2.59        |0.89                  |0.88          |0.22         |0.09           |
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |3         |1,700.67       |4.37             |63.92                 |42.21          |15.53       |7.33                  |1.44          |0.44         |0.18           |
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |2         |1,578.84       |10.52            |67.44                 |11.58          |7.95        |1.32                  |5.83          |0.48         |0.19           |
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - +----------+---------------+-----------------+----------------------+---------------+------------+----------------------+--------------+-------------+---------------+
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - Cluster sizes:
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - +----------+-----+
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |prediction|count|
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - +----------+-----+
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |0         |59196|
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |1         |13103|
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |2         |15538|
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |3         |23104|
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - |4         |23542|
-2025-06-10 20:46:57 - kmeans_clustering  - INFO     - +----------+-----+
-2025-06-10 20:46:58 - kmeans_clustering  - INFO     - Cluster statistics plot saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/cluster_statistics.png
-2025-06-10 20:46:58 - kmeans_clustering  - INFO     - Cluster heatmap saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/cluster_heatmap.png
-2025-06-10 20:46:58 - kmeans_clustering  - INFO     - Evaluating model...
-2025-06-10 20:46:59 - kmeans_clustering  - INFO     - Silhouette score: 0.49
-2025-06-10 20:46:59 - kmeans_clustering  - INFO     - Clustering report saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/clustering_report.txt
-2025-06-10 20:46:59 - kmeans_clustering  - INFO     - Visualizing clusters using PCA...
-2025-06-10 20:47:02 - kmeans_clustering  - INFO     - PCA cluster visualization saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/pca_clusters.png
-2025-06-10 20:47:02 - kmeans_clustering  - INFO     - K-means clustering completed successfully!
-2025-06-10 20:47:02 - kmeans_clustering  - INFO     - Model saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model
-2025-06-10 20:47:02 - kmeans_clustering  - INFO     - Reports and visualizations saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots
-2025-06-10 20:47:02 - __main__           - INFO     - ================================================================================
-2025-06-10 20:47:02 - __main__           - INFO     - Pipeline completed successfully!
-2025-06-10 20:47:02 - __main__           - INFO     - ================================================================================
-2025-06-10 20:47:02 - __main__           - INFO     - Results summary:
-2025-06-10 20:47:02 - __main__           - INFO     - Silhouette score: 0.49
-2025-06-10 20:47:02 - __main__           - INFO     - Model saved to: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model
-2025-06-10 20:47:02 - __main__           - INFO     - Reports saved to: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports
-2025-06-10 20:47:02 - __main__           - INFO     - Total execution time: 47.91 seconds
+2025-06-18 19:46:08 - __main__           - INFO     - ================================================================================
+2025-06-18 19:46:08 - __main__           - INFO     - ITMO Big Data Lab 5: PySpark K-Means Clustering on Food Data
+2025-06-18 19:46:08 - __main__           - INFO     - ================================================================================
+2025-06-18 19:46:08 - __main__           - INFO     - Testing Spark setup...
+2025-06-18 19:46:08 - spark_setup        - INFO     - Creating Spark session...
+2025-06-18 19:46:08 - spark_setup        - INFO     - Using Spark event log directory: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/spark-events
+2025-06-18 19:46:09 - spark_setup        - INFO     - Spark session created successfully with app name: FoodClusteringPipeline
+2025-06-18 19:46:09 - __main__           - INFO     - Running WordCount test...
+2025-06-18 19:46:09 - spark_setup        - INFO     - Running WordCount test...
+2025-06-18 19:46:11 - spark_setup        - INFO     - Word Count Results:
+2025-06-18 19:46:11 - spark_setup        - INFO     - a: 1
+2025-06-18 19:46:11 - spark_setup        - INFO     - Spark: 1
+2025-06-18 19:46:11 - spark_setup        - INFO     - Testing: 1
+2025-06-18 19:46:11 - spark_setup        - INFO     - simple: 1
+2025-06-18 19:46:11 - spark_setup        - INFO     - with: 1
+2025-06-18 19:46:11 - spark_setup        - INFO     - WordCount: 1
+2025-06-18 19:46:11 - spark_setup        - INFO     - example: 1
+2025-06-18 19:46:11 - __main__           - INFO     - Spark setup test completed successfully!
+2025-06-18 19:46:12 - __main__           - INFO     - Processed data already exists, skipping data processing...
+2025-06-18 19:46:12 - __main__           - INFO     - Building and evaluating K-means model...
+2025-06-18 19:46:13 - spark_setup        - INFO     - Creating Spark session...
+2025-06-18 19:46:13 - spark_setup        - INFO     - Using Spark event log directory: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/spark-events
+2025-06-18 19:46:14 - spark_setup        - INFO     - Spark session created successfully with app name: FoodClusteringApp
+2025-06-18 19:46:14 - kmeans_clustering  - INFO     - Loading processed data from /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/../data/processed_food_data.parquet...
+2025-06-18 19:46:14 - kmeans_clustering  - INFO     - Sample of processed data:
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - Sample of processed data:
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - +-----+----------------------------------------+--------------+-------------------+----------------+----------+-----------+-------------+------------------+-----------+--------+------------------+----------+---------+-----------+
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - |_id  |product_name                            |brands        |categories         |nutriscore_grade|nova_group|energy_100g|proteins_100g|carbohydrates_100g|sugars_100g|fat_100g|saturated-fat_100g|fiber_100g|salt_100g|sodium_100g|
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - +-----+----------------------------------------+--------------+-------------------+----------------+----------+-----------+-------------+------------------+-----------+--------+------------------+----------+---------+-----------+
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - |63.0 |Mozzarella Schnittfest Gerieben 45% Fett|Gut & Gunstig |NULL               |unknown         |NULL      |1,389.00   |23.00        |3.00              |1.00       |25.00   |17.30             |0.00      |1.20     |0.48       |
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - |114.0|Chocolate n 3                           |Jeff de Bruges|NULL               |unknown         |NULL      |2,415.00   |7.10         |30.00             |27.00      |44.00   |28.00             |0.00      |0.03     |0.01       |
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - |2.0  |Filets de poulet blanc x2               |SoLo          |Protein powders    |not-applicable  |1         |392.00     |30.00        |0.90              |6.20       |2.70    |0.60              |2.20      |0.40     |0.16       |
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - |4.0  |Entrecôesteack - Highland Beef          |Oreos         |Nutrition drink mix|d               |NULL      |2,401.00   |1.00         |26.00             |15.00      |0.00    |0.00              |3.00      |0.00     |0.00       |
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - |475.0|Confiture extra citron de Menton        |NULL          |NULL               |unknown         |NULL      |929.00     |0.80         |50.80             |50.60      |0.00    |0.00              |0.00      |0.00     |0.00       |
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - +-----+----------------------------------------+--------------+-------------------+----------------+----------+-----------+-------------+------------------+-----------+--------+------------------+----------+---------+-----------+
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - only showing top 5 rows
+2025-06-18 19:46:15 - kmeans_clustering  - INFO     - Preparing features for clustering...
+2025-06-18 19:46:17 - kmeans_clustering  - INFO     - Features prepared. Filtered dataset has 134483 records.
+2025-06-18 19:46:17 - kmeans_clustering  - INFO     - Finding optimal number of clusters...
+2025-06-18 19:46:20 - kmeans_clustering  - INFO     - k=2, WSSSE=869334.69, Silhouette Score=0.4415
+2025-06-18 19:46:22 - kmeans_clustering  - INFO     - k=3, WSSSE=698757.63, Silhouette Score=0.4586
+2025-06-18 19:46:24 - kmeans_clustering  - INFO     - k=4, WSSSE=611989.37, Silhouette Score=0.4852
+2025-06-18 19:46:25 - kmeans_clustering  - INFO     - k=5, WSSSE=544765.15, Silhouette Score=0.4859
+2025-06-18 19:46:27 - kmeans_clustering  - INFO     - k=6, WSSSE=506938.69, Silhouette Score=0.4571
+2025-06-18 19:46:30 - kmeans_clustering  - INFO     - k=7, WSSSE=456712.07, Silhouette Score=0.4309
+2025-06-18 19:46:31 - kmeans_clustering  - INFO     - k=8, WSSSE=428902.88, Silhouette Score=0.4534
+2025-06-18 19:46:34 - kmeans_clustering  - INFO     - k=9, WSSSE=393898.68, Silhouette Score=0.4490
+2025-06-18 19:46:36 - kmeans_clustering  - INFO     - k=10, WSSSE=377116.71, Silhouette Score=0.4557
+2025-06-18 19:46:38 - kmeans_clustering  - INFO     - k=11, WSSSE=353356.03, Silhouette Score=0.4536
+2025-06-18 19:46:41 - kmeans_clustering  - INFO     - k=12, WSSSE=340899.11, Silhouette Score=0.4464
+2025-06-18 19:46:43 - kmeans_clustering  - INFO     - k=13, WSSSE=328032.55, Silhouette Score=0.4442
+2025-06-18 19:46:46 - kmeans_clustering  - INFO     - k=14, WSSSE=307389.66, Silhouette Score=0.4723
+2025-06-18 19:46:48 - kmeans_clustering  - INFO     - k=15, WSSSE=298259.65, Silhouette Score=0.3988
+2025-06-18 19:46:49 - kmeans_clustering  - INFO     - Clustering metrics plot saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/clustering_metrics.png
+2025-06-18 19:46:49 - kmeans_clustering  - INFO     - Optimal k based on silhouette score: 5
+2025-06-18 19:46:49 - kmeans_clustering  - INFO     - Optimal k based on elbow method: 2
+2025-06-18 19:46:49 - kmeans_clustering  - INFO     - Using optimal k = 5
+2025-06-18 19:46:49 - kmeans_clustering  - INFO     - Building K-means model with k=5...
+2025-06-18 19:46:50 - kmeans_clustering  - INFO     - Model directory /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model already exists. Overwrite...
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - Model saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - Evaluating model...
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - Silhouette score: 0.49
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - Analyzing clusters...
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - Cluster statistics:
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - +----------+---------------+-----------------+----------------------+---------------+------------+----------------------+--------------+-------------+---------------+
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |prediction|avg_energy_100g|avg_proteins_100g|avg_carbohydrates_100g|avg_sugars_100g|avg_fat_100g|avg_saturated-fat_100g|avg_fiber_100g|avg_salt_100g|avg_sodium_100g|
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - +----------+---------------+-----------------+----------------------+---------------+------------+----------------------+--------------+-------------+---------------+
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |4         |1,123.86       |9.02             |32.00                 |5.69           |11.79       |2.90                  |1.35          |1.86         |0.75           |
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |1         |1,933.91       |16.93            |22.14                 |5.13           |35.05       |10.78                 |2.84          |1.10         |0.44           |
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |0         |353.16         |3.51             |11.80                 |5.62           |2.59        |0.89                  |0.88          |0.22         |0.09           |
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |3         |1,700.67       |4.37             |63.92                 |42.21          |15.53       |7.33                  |1.44          |0.44         |0.18           |
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |2         |1,578.84       |10.52            |67.44                 |11.58          |7.95        |1.32                  |5.83          |0.48         |0.19           |
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - +----------+---------------+-----------------+----------------------+---------------+------------+----------------------+--------------+-------------+---------------+
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - Cluster sizes:
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - +----------+-----+
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |prediction|count|
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - +----------+-----+
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |0         |59196|
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |1         |13103|
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |2         |15538|
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |3         |23104|
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - |4         |23542|
+2025-06-18 19:46:51 - kmeans_clustering  - INFO     - +----------+-----+
+2025-06-18 19:46:52 - kmeans_clustering  - INFO     - Cluster statistics plot saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/cluster_statistics.png
+2025-06-18 19:46:54 - kmeans_clustering  - INFO     - Cluster heatmap saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/cluster_heatmap.png
+2025-06-18 19:46:54 - kmeans_clustering  - INFO     - Evaluating model...
+2025-06-18 19:46:54 - kmeans_clustering  - INFO     - Silhouette score: 0.49
+2025-06-18 19:46:54 - kmeans_clustering  - INFO     - Clustering report saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/clustering_report.txt
+2025-06-18 19:46:54 - kmeans_clustering  - INFO     - Visualizing clusters using PCA...
+2025-06-18 19:46:57 - kmeans_clustering  - INFO     - PCA cluster visualization saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots/pca_clusters.png
+2025-06-18 19:46:57 - kmeans_clustering  - INFO     - K-means clustering completed successfully!
+2025-06-18 19:46:57 - kmeans_clustering  - INFO     - Model saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model
+2025-06-18 19:46:57 - kmeans_clustering  - INFO     - Reports and visualizations saved to /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports/plots
+2025-06-18 19:46:57 - __main__           - INFO     - ================================================================================
+2025-06-18 19:46:57 - __main__           - INFO     - Pipeline completed successfully!
+2025-06-18 19:46:57 - __main__           - INFO     - ================================================================================
+2025-06-18 19:46:57 - __main__           - INFO     - Results summary:
+2025-06-18 19:46:57 - __main__           - INFO     - Silhouette score: 0.49
+2025-06-18 19:46:57 - __main__           - INFO     - Model saved to: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/models/kmeans_model
+2025-06-18 19:46:57 - __main__           - INFO     - Reports saved to: /Users/xeniabaturina/ITMO/Sem2/BD/ITMO_BD_LAB5/reports
+2025-06-18 19:46:57 - __main__           - INFO     - Total execution time: 49.02 seconds
+2025-06-18 19:47:07 - __main__           - INFO     - Attempting to stop Spark History Server...
+2025-06-18 19:47:07 - __main__           - INFO     - Found stop script at: /Users/xeniabaturina/.pyenv/versions/3.8.19/lib/python3.8/site-packages/pyspark/sbin/stop-history-server.sh
+2025-06-18 19:47:07 - __main__           - INFO     - Spark History Server stopped successfully using stop script!

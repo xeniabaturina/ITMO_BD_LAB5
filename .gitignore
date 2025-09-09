@@ -43,7 +43,5 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
-spark-events/
-logs/
-models/
+data/
 *.log
